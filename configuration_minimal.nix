@@ -8,7 +8,7 @@
     boot.loader.systemd-boot.enable = true; # for UEFI ONLY
     # boot.loader.grub.device = "/dev/sda";   # for BIOS ONLY
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.loader.efi.enable = true;
+    # boot.loader.efi.enable = true; # somehow this command doesnt exist in docu
 
 
     networking.useDHCP = false;
@@ -26,6 +26,7 @@
         keyMap = "de";
     };
     keyboardLayout = "de";
+    time.timeZone = "Europe/Vienna";
 
     # add user
     users.users.eqily = {
