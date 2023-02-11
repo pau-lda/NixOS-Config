@@ -54,13 +54,12 @@
     libinput.enable = true;
     displayManager = {
       defaultSession = "xsession";
-      autoLogin.user = "${username}";
+      #autoLogin.user = "${username}";
       session = [{
         manage = "desktop";
         name = "xsession";
         start = ''
-	        exec $HOME/.xsession &
-	        waitPID=$!
+	        exec $HOME/.xsession
 	      '';
       }];
     };
