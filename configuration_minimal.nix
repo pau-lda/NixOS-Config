@@ -15,16 +15,61 @@
     # networking.interfaces.YOURINTERFACE.useDHCP = true;
     networking.networkManager.enable = true;
 
-    # enable dwm
-    services.xserver.enable = true;
-    services.xserver.displayManager.dwm.enable = true;
-    services.xserver.displayManager.lightdm.enable = false;
-    services.xserver.displayManager.startx.enable = true;
-    displayManager.x11.enable = true;
-    displayManager.x11.windowManager.dwm.enable = true;
-    # start dwm on startup
-    
+    #enable dwm-status bar?
+    services.dwm-status.enable = true;
 
+    xserver = {
+        enable = true;
+        displayManager = {
+            defaultSession = "dwm";
+            runXdgAutostartIfNone = true;   # needed if no dm but onyl a wm
+
+            lightdm.enable = false;
+            startx.enable = true;
+
+            # dwm = [{
+            #    enable = true;
+            # }];
+            session = [{
+                manage = "windows";
+                name = "dwm";
+                start = ''exec $HOME/.xsession'';
+            }]; 
+        };
+        windowManager = {
+            awesome = {
+                enable = false;
+                luaModules = [
+                    # add here
+                ];
+            };
+
+            dwm = {
+                enable = true;
+                /*
+                package = pkgs.dwm.overrideAttrs (oldAttrs: rec {
+                    patches = [
+                        (super.fetchpatch {
+                            url = "https://git.suckless.org/dwm";
+                            sha256 = "1ld1z3fh6p5f8gr62zknx3axsinraayzxw3rz1qwg73mx2zk5y1f";
+                        })
+                    ];
+                });
+                */
+            };
+
+        };
+        /*
+        videoDriver = [
+            "nvidia"
+            "nvidiaLegacy340"
+            "amdgpu"
+        ];
+        */
+
+    };
+
+    # start dwm on startup
 
     console = {
         font = "Lat2-Terminus16";
@@ -49,4 +94,6 @@
         rxvt-unicode
         vim
     ];
+
+    system.stateVersion = "22.11";
 }
