@@ -11,14 +11,19 @@
     # boot.loader.efi.enable = true; # somehow this command doesnt exist in docu
 
 
-    networking.useDHCP = false;
-    netowrking.interfaces.YOURINTERFACE.useDHCP = true;
+    # networking.useDHCP = false;
+    # networking.interfaces.YOURINTERFACE.useDHCP = true;
+    networking.networkManager.enable = true;
 
     # enable dwm
+    services.xserver.enable = true;
+    services.xserver.displayManager.dwm.enable = true;
+    services.xserver.displayManager.lightdm.enable = false;
+    services.xserver.displayManager.startx.enable = true;
     displayManager.x11.enable = true;
     displayManager.x11.windowManager.dwm.enable = true;
     # start dwm on startup
-    services.xserver.displayManager.dwm.enable = true;
+    
 
 
     console = {
@@ -42,5 +47,6 @@
         git
         neofetch
         rxvt-unicode
+        vim
     ];
 }
