@@ -33,7 +33,7 @@
         home = "/home/eqily";
         extraGroups = [ "wheel"];
         initialPassword = "pw123";
-    }
+    };
 
     # packages to install
     environment.systemPackages = with pkgs; [
@@ -41,5 +41,5 @@
         git
         neofetch
         rxvt-unicode
-    ]
+    ];
 }
