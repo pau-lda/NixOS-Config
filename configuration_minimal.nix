@@ -6,24 +6,23 @@
     ];
     
     # boot.loader.systemd-boot.enable = true; # for UEFI ONLY
-    # boot.loader.grub.device = "/dev/sda";   # for BIOS ONLY
     boot.loader.efi.canTouchEfiVariables = true;
     # boot.loader.efi.enable = true; # somehow this command doesnt exist in docu
 
     boot.loader.grub = {
         enable = true;
         version = 2;
-        device = "/dev/sdb";
+        device = "nodev";
         # fsIdentifier = "uuid";    # how grub identifes disks
         efiSupport = true;
         default = "0";
         /*
         extraEntries = ''
             menuentry "Windows 11" {
-                chainloader (nvm0n1)
+                chainloader (nvme0n1p1)
             }
             menuentry "NixOS" {
-                chainloader (sdb)
+                chainloader (sda)
             }
         '';
         */
@@ -36,7 +35,7 @@
     # networking.interfaces.YOURINTERFACE.useDHCP = true;
     networking.networkmanager.enable = true;
 
-    #enable dwm-status bar?
+    # enable dwm-status bar?
     services.dwm-status = {
         enable = true;
         order = [
@@ -109,9 +108,9 @@
         */
         # for custom dwm build
         (self: super: {
-            dwm = super.dwm.overideAttrs (_: { 
+            dwm = super.dwm.overrideAttrs (_: { 
                 src = builtins.fetchGit https://github.com/MentalOutlaw/dwm;
-            }
+            });
         })
     ];
     console = {
@@ -145,6 +144,7 @@
         unclutter # hides mouse cursor
     ];
 
+    /*
     xinitrc = pkgs.writeTextFile {
         name = "xinitrc";
         executable = false;
@@ -161,6 +161,6 @@
 
         '';
     };
-
+    */
     system.stateVersion = "22.11";
 }
