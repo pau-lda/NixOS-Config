@@ -5,15 +5,36 @@
         ./hardware-configuration.nix
     ];
     
-    boot.loader.systemd-boot.enable = true; # for UEFI ONLY
+    # boot.loader.systemd-boot.enable = true; # for UEFI ONLY
     # boot.loader.grub.device = "/dev/sda";   # for BIOS ONLY
     boot.loader.efi.canTouchEfiVariables = true;
     # boot.loader.efi.enable = true; # somehow this command doesnt exist in docu
 
+    boot.loader.grub = {
+        enable = true;
+        version = 2;
+        device = "/dev/sdb";
+        # fsIdentifier = "uuid";    # how grub identifes disks
+        efiSupport = true;
+        default = "0";
+        /*
+        extraEntries = ''
+            menuentry "Windows 11" {
+                chainloader (nvm0n1)
+            }
+            menuentry "NixOS" {
+                chainloader (sdb)
+            }
+        '';
+        */
+        useOSProber = true; # should automatically detect other OSs
+        
+    };
+
 
     # networking.useDHCP = false;
     # networking.interfaces.YOURINTERFACE.useDHCP = true;
-    networking.networkManager.enable = true;
+    networking.networkmanager.enable = true;
 
     #enable dwm-status bar?
     services.dwm-status = {
@@ -74,14 +95,23 @@
     };
 
     nixpkgs.overlays = [
+        /*
+        # for normal dwm but with patches
         (self: super: {
             dwm = super.dwm.overrideAttrs (oldAttrs: rec {
                 patches = [
-                    (builtins.fetchurl https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.2.diff) # fullgaps
-                    (builtins.fetchurl https://dwm.suckless.org/patches/nextprev/nextprevtag.c) # next prev tag
+                    (builtins.fetchurl https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-toggle-20200830.diff) # fullgaps
+                    # (builtins.fetchurl https://dwm.suckless.org/patches/nextprev/nextprevtag.c) # next prev tag
 
                 ];
             });
+        })
+        */
+        # for custom dwm build
+        (self: super: {
+            dwm = super.dwm.overideAttrs (_: { 
+                src = builtins.fetchGit https://github.com/MentalOutlaw/dwm;
+            }
         })
     ];
     console = {
@@ -91,9 +121,9 @@
     services.automatic-timezoned.enable = true;
 
     # add user
-    users.users.eqily = {
+    users.users.chyq = {
         isNormalUser = true;
-        home = "/home/chqir";
+        home = "/home/chyq";
         extraGroups = [ "wheel" "networkmanager" ];
         initialPassword = "chel";
     };
@@ -110,9 +140,27 @@
         firefox
         wget
         gcc
-        incosolata # font
-        make
+        inconsolata # font
+        gnumake
+        unclutter # hides mouse cursor
     ];
+
+    xinitrc = pkgs.writeTextFile {
+        name = "xinitrc";
+        executable = false;
+        destination = "/home/chyq/.xinitrc";
+        text = ''
+        # hide mouse after idle
+        unclutter -idle 3 &
+
+        # custom theme
+        xrdb ~/.Xresources &
+
+        # run dwm
+        exec dwm > ~/.dwm.log
+
+        '';
+    };
 
     system.stateVersion = "22.11";
 }
