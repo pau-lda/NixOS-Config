@@ -5,7 +5,7 @@
         ./hardware-configuration.nix
     ];
     
-    # boot.loader.systemd-boot.enable = true; # for UEFI ONLY
+    boot.loader.systemd-boot.enable = true; # for UEFI ONLY
     boot.loader.efi.canTouchEfiVariables = true;
     # boot.loader.efi.enable = true; # somehow this command doesnt exist in docu
 
@@ -137,7 +137,6 @@
         rxvt-unicode
         vim
         firefox
-        wget
         gcc
         inconsolata # font
         gnumake
