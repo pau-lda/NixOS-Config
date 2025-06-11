@@ -1,17 +1,9 @@
 {config,lib,pkgs,...}:
-
-with lib;
 {
-     options.modules.dwm = {
-        enable = mkOption {type = types.bool; default = false; };
-    }
 
-    config = mkIf config.modules.dwn.enable {
-        # only if 'enable' = true -> make these configs
+        home.packages = with pkgs; [dwm];
 
-        home.packages = with pkgs; [
-            dwm
-        ];
+        services.xserver.windowManager.dwm.package = pkgs.dwm;
 
         /*
         nixpkgs.overlays = [
@@ -33,7 +25,6 @@ with lib;
         displayManager.x11.enable = true;
         displayManager.x11.windowManager.dwm.enable = true;
         services.xserver.windowManager.dwm.enable = true; 
-    }
     
 
 }

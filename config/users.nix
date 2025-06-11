@@ -1,0 +1,4 @@
+{
+  default = "pauli";
+  work = "pd";
+}
