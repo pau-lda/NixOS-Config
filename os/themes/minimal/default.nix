@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../os/features/basic.nix
-    ../../os/features/nix.nix
-    ../../os/features/users.nix
+    ../../features/basic.nix
+    ../../features/nix.nix
+    ../../features/users.nix
   ];
 }

@@ -5,9 +5,7 @@
   ];
   services.xserver = {
     enable = true;
-    displayManager.x11.enable = true;
-    displayManager.x11.windowManager.dwm.enable = true;
-    windowManager.dwm.enable = true; 
+    windowManager.dwm.enable = true;
   };
 
   # Configure keymap in X11
@@ -15,4 +13,10 @@
     layout = "at";
     variant = "nodeadkeys";
   };
+
+  # Autostart dwm with .xinitrc (if not using a display manager)
+  environment.etc."xinitrc".text = ''
+    #!/bin/sh
+    exec dwm
+  '';
 }

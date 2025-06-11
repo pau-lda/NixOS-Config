@@ -1,21 +1,21 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ../../features/cli/vim.nix
-    ../../features/cli/autojump.nix
-    ../../features/cli/zsh.nix
-    ../../features/cli/bat.nix
-    ../../features/cli/common.nix
-    ../../features/cli/fzf.nix
-    ../../features/cli/git.nix
-    ../../features/cli/jq.nix
-    ../../features/cli/lsd.nix
-    ../../features/cli/powerline-go.nix
-    ../../features/cli/ssh.nix
-    ../../features/cli/ripgrep.nix
-    ../../features/cli/home-manager.nix
-    ../../features/cli/zip.nix
-    ../../features/cli/wireguard.nix
+    ../../programs/cli/vim.nix
+    #../../programs/cli/autojump.nix
+    ../../programs/cli/zsh.nix
+    #../../programs/cli/bat.nix
+    ../../programs/cli/common.nix
+    #../../programs/cli/fzf.nix
+    ../../programs/cli/git.nix
+    #../../programs/cli/jq.nix
+    #../../programs/cli/lsd.nix
+    #../../programs/cli/powerline-go.nix
+    #../../programs/cli/ssh.nix
+    #../../programs/cli/ripgrep.nix
+    ../../programs/cli/home-manager.nix
+    ../../programs/cli/zip.nix
+    #../../programs/cli/wireguard.nix
   ];
   manual.html.enable = true;
 }

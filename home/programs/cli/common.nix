@@ -18,5 +18,5 @@
       ncdu
       pwgen
       screen
-    ]
+    ];
 }

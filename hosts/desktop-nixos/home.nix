@@ -4,7 +4,6 @@ let
 in
 {
   imports = [
-    ../../home/desktop/desktop/dwm
     ../../home/themes/desktop/dwm
   ];
 

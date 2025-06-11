@@ -40,7 +40,7 @@
           };
           modules = [
             ./hosts/${host.dir}/home.nix
-            ./overlays
+            #./overlays
           ] ++ modules;
         };
 
@@ -56,7 +56,7 @@
           system = host.arch;
           modules = [
             ./hosts/${host.dir}/configuration.nix
-            ./overlays
+            #./overlays
             { nixpkgs.overlays = overlays; }
             home-manager.nixosModules.home-manager
             {
@@ -88,5 +88,5 @@
         nixpkgs = inputs.nixpkgs;
         home-manager = inputs.home-manager;
       };
-    }
+    };
 }

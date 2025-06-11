@@ -12,19 +12,19 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/1ec9d55e-2360-4e36-8726-eccdf7074348";; # Replace with your root partition UUID
+      device = "/dev/disk/by-uuid/1ec9d55e-2360-4e36-8726-eccdf7074348"; # Replace with your root partition UUID
       fsType = "btrfs";
       options = [ "subvol=@" "compress=zstd" "noatime" ];
     };
 
     "/home" = {
-      device = "/dev/disk/by-uuid/1ec9d55e-2360-4e36-8726-eccdf7074348";; # Same UUID as root
+      device = "/dev/disk/by-uuid/1ec9d55e-2360-4e36-8726-eccdf7074348"; # Same UUID as root
       fsType = "btrfs";
       options = [ "subvol=@home" "compress=zstd" "noatime" ];
     };
 
     "/nix" = {
-      device = "/dev/disk/by-uuid/1ec9d55e-2360-4e36-8726-eccdf7074348";; # Same UUID as root
+      device = "/dev/disk/by-uuid/1ec9d55e-2360-4e36-8726-eccdf7074348"; # Same UUID as root
       fsType = "btrfs";
       options = [ "subvol=@nix" "compress=zstd" "noatime" ];
     };

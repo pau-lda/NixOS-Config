@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ./networking.nix
 
-    ../../hardware/gpu/nvidia.nix
+    ../../os/hardware/nvidia.nix
     ../../os/themes/desktop/dwm
   ];
 
