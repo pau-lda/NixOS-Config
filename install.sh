@@ -14,3 +14,7 @@ if [ "$linux_os" = "nixos"]; then
     sudo ln -sfn "$src/lib" "$dst/lib"
 fi
 echo "generated symlinks to $dst"
+echo "running nixos-rebuild switch"
+sudo nixos-rebuild switch
+# or
+# home-manager switch for non NixOS systems
