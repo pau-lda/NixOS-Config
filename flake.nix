@@ -66,6 +66,7 @@
           ] ++ modules;
         };
 
+/*
       ollamaPkgs = import inputs.nixpkgs {
         system = "x86_64-linux";
         config = {
@@ -78,7 +79,7 @@
           ollama = ollamaPkgs.ollama;
         }
       );
-
+*/
     in
 
     {
