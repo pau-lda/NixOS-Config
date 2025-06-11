@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 src="$HOME/NixOS-Config"
-if [ "$linux_os" = "nixos"]; then
+if [ "$linux_os" = "nixos" ]; then
     dst="/etc/nixos"
     sudo ln -sfn "$src/flake.nix" "$dst/flake.nix"
     sudo ln -sfn "$src/flake.lock" "$dst/flake.lock"
