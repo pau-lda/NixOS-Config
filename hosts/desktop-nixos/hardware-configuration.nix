@@ -30,7 +30,7 @@
     };
 
     "/boot" = {
-      device = "/dev/disks/by-uuid/64aa-398c"; # Replace with your EFI partition UUID
+      device = "/dev/disk/by-uuid/64aa-398c"; # Replace with your EFI partition UUID
       fsType = "vfat";
     };
   };
