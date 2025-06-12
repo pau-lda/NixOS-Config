@@ -23,9 +23,14 @@
   ];
 
   #programs.ssh.startAgent = true;
-  boot.loader.grub.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "nodev"; # or "nodev" for efi only
+  boot.loader.grub = {
+    efiSupport = true;
+    enable = true;
+    device = "nodev"; # Use "nodev" for EFI systems
+    useOSProber = true;
+  };
+  boot.loader.efi = {
+    canTouchEfiVariables = true;
+  };
   system.stateVersion = "25.05";
 }
