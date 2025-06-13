@@ -7,9 +7,9 @@ My own NixOS config with flakes. Contains hosts for work, wsl, desktop machine, 
 
 Add or remove hosts and configure to your liking.
 
-Copy the flake and its requisites with install.sh to /etc/nixos and run `nixos-rebuild switch`.
+Run `nixos-rebuild switch --flake github:pau-lda/NixOS-Config#your-host`
 
-Or call `nixos-rebuild switch --flake /path/to/flake#your-host` directly.
+Or copy the flake and its requisites with install.sh to /etc/nixos and run `nixos-rebuild switch`.
 
 
 ## Pre-rebuild
