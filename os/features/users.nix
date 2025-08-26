@@ -22,6 +22,7 @@ in
         "docker"
         "networkmanager"
       ];
+    initialPassword = "password";
 
     # Dynamically read all .pub files from the specified directory
     #openssh.authorizedKeys.keys = sshUtils.readPubKeys sshKeysDir;

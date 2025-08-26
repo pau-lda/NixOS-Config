@@ -18,5 +18,6 @@
       ncdu
       pwgen
       screen
+      xclip
     ];
 }

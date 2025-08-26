@@ -1,12 +1,8 @@
 {config,lib,pkgs,...}:
 {
-
-        #services.xserver.displayManager.startx.enable
-        #services.xserver.displayManager.lightdm.enable = false;
-        #services.xserver.displayManager.startx.enable = true; 
-
-#        displayManager.x11.enable = true;
-#        displayManager.x11.windowManager.dwm.enable = true;
-    
-
+  # Autostart dwm with .xinitrc (if not using a display manager)
+  home.file.".xinitrc".text = ''
+    #!/bin/sh
+    exec dwm
+  '';
 }

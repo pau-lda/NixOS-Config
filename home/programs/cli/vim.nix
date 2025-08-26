@@ -1,11 +1,15 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    vim
-    vimPlugins.vim-vsnip
-#    vimPlugins.vim-go
-#    vimPlugins.vim-markdown
-#    vimPlugins.vim-terraform
-    xclip
-  ];
+  programs.neovim = {
+    enable = true;
+    package = pkgs.neovim-unwrapped;
+  };
+
+  home.file.".config/nvim".source = pkgs.fetchgit {
+    url = "https://github.com/pau-lda/nvim-config.git";
+    rev = "main";
+    leaveDotGit = true;
+    deepClone = true;
+    hash = "sha256-ssksgBPNupBv6ccU7uyj2VZyyAcOktLrfwV6BzIRark=";
+  };
 }
