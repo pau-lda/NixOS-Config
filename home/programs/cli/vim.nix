@@ -10,6 +10,6 @@
     rev = "HEAD";
     leaveDotGit = true;
     deepClone = true;
-    hash = "sha256-ssksgBPNupBv6ccU7uyj2VZyyAcOktLrfwV6BzIRark=";
+    hash = "sha256-gwlbi4ByKAz73IhLvavgHXAOAvNZeYiUGC7k3h8Yioo=";
   };
 }
