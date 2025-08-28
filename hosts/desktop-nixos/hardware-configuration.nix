@@ -12,25 +12,25 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/db52f483-c643-49bd-aace-a25841ab20c4"; # Replace with your root partition UUID
+      device = "/dev/disk/by-label/ROOT"; # Replace with your root partition
       fsType = "btrfs";
       options = [ "subvol=@" "compress=zstd" "noatime" ];
     };
 
     "/home" = {
-      device = "/dev/disk/by-uuid/db52f483-c643-49bd-aace-a25841ab20c4"; # Same UUID as root
+      device = "/dev/disk/by-label/ROOT"; # Same disk as root
       fsType = "btrfs";
       options = [ "subvol=@home" "compress=zstd" "noatime" ];
     };
 
     "/nix" = {
-      device = "/dev/disk/by-uuid/db52f483-c643-49bd-aace-a25841ab20c4"; # Same UUID as root
+      device = "/dev/disk/by-label/ROOT"; # Same disk as root
       fsType = "btrfs";
       options = [ "subvol=@nix" "compress=zstd" "noatime" ];
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/64AA-398C"; # Replace with your EFI partition UUID
+      device = "/dev/disk/by-label/BOOT"; # Replace with your EFI partition
       fsType = "vfat";
     };
   };
