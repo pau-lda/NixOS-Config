@@ -11,6 +11,9 @@ Run `nixos-rebuild switch --flake github:pau-lda/NixOS-Config#your-host`
 
 Or copy the flake and its requisites with install.sh to /etc/nixos and run `nixos-rebuild switch`.
 
+When installing the os on another disk. First mount /boot and /root to /mnt, or use the diskos mount feature. 
+Then run `nixos-install --flake github:pau-lda/NixOS-Config#your-host`
+
 
 ## Pre-rebuild
 
