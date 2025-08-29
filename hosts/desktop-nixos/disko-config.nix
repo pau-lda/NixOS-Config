@@ -14,14 +14,14 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                extraArgs = [ "-LBOOT" ];
+                extraArgs = [ "-nBOOT" ]; # set label
               };
             };
             root = {
               size = "100%";
               content = {
                 type = "btrfs";
-                extraArgs = [ "-f" "-LROOT" ]; # Force formatting
+                extraArgs = [ "-f" "-LROOT" ]; # Force formatting, set label
                 subvolumes = {
                   "@" = {
                     mountpoint = "/";
