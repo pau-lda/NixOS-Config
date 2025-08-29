@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    ../../home/themes/desktop/dwm
+    ../../home/themes/desktop/hyprland
   ];
 
   home.packages = with pkgs; [

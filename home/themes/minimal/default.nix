@@ -12,7 +12,7 @@
     #../../programs/cli/lsd.nix
     #../../programs/cli/powerline-go.nix
     #../../programs/cli/ssh.nix
-    #../../programs/cli/ripgrep.nix
+    ../../programs/cli/ripgrep.nix
     ../../programs/cli/home-manager.nix
     ../../programs/cli/zip.nix
     #../../programs/cli/wireguard.nix
