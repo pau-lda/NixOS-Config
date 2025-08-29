@@ -4,8 +4,8 @@
     ../minimal
   ];
 
-  programs.hyprland.enable = {
+  programs.hyprland = {
     enable = true;
     withUWSM = true;
-  } 
+  };
 }
