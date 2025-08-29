@@ -5,7 +5,7 @@
     ./networking.nix
 
     ../../os/hardware/nvidia.nix
-    ../../os/themes/desktop/dwm
+    ../../os/themes/desktop/hyprland
   ];
 
   # Enable OpenGL
