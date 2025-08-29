@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    alacritty
-  ];
-
+  programs.alacritty = {
+    enable = true;
+  };
+  
   #home.file.".config/alacritty".source = pkgs.fetchgit {
   #  url = "https://github.com/pau-lda/alacritty-config.git";
   #  rev = "main";
