@@ -2,7 +2,7 @@
 {
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-unwrapped;
+    #package = pkgs.neovim-unwrapped;
   };
 
   home.file.".config/nvim".source = pkgs.fetchgit {
