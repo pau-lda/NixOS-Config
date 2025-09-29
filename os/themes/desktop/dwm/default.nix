@@ -10,9 +10,4 @@
   };
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "at";
-    variant = "nodeadkeys";
-    options = [ "altwin:swap_alt_win" ];
-  };
 }
