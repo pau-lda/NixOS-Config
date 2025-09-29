@@ -7,6 +7,9 @@
   #];
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
+    bind = [
+      "$mod, Q, exec, kitty"      
+    ];
   };
   wayland.windowManager.hyprland.systemd.variables = ["--all"];
   xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; 
