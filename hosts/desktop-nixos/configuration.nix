@@ -16,7 +16,12 @@
   time.hardwareClockInLocalTime = true;
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services = {
+    xserver = {
+      excludePackages = [ pkgs.xterm ];
+      videoDrivers = [ "nvidia" ];
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     onlyoffice-bin

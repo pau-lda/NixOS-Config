@@ -10,11 +10,7 @@
     ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
   };
   */
-  console.keymap = "de"
-  services.xserver.xkb = {
-    layout = "at";
-    variant = "nodeadkeys";
-  };
+  console.keyMap = "de";
 
   environment.systemPackages = with pkgs; [
     firefox
