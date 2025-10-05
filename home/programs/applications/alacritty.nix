@@ -13,7 +13,7 @@
   #}
 
   xdg.configFile."alacritty" = {
-    source = config.lib.file.mkOutOfStoreSymLink "${config.home.homeDirectory}/dotfiles/alacritty/";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/alacritty/";
     recursive = true;
   };
     

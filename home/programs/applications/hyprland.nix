@@ -23,7 +23,7 @@
   xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; 
 
   xdg.configFile."hyprland" = {
-    source = config.lib.file.mkOutOfStoreSymLink "${config.home.homeDirectory}/dotfiles/hyprland";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hyprland";
     recursive = true;
   };
 }
