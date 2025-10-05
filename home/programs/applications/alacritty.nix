@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.alacritty = {
     enable = true;
@@ -11,5 +11,10 @@
   #  deepClone = true;
   #  hash = "sha256-ssksgBPNupBv6ccU7uyj2VZyyAcOktLrfwV6BzIRark="
   #}
+
+  xdg.configFile."alacritty" = {
+    source = config.lib.file.mkOutOfStoreSymLink "${config.home.homeDirectory}/dotfiles/alacritty/";
+    recursive = true;
+  };
     
 }
