@@ -8,7 +8,7 @@
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     bind = [
-      "$mod, Q, exec, kitty"
+      "$mod, Q, exec, alacritty"
     ];
     input = {
         kb_layout = "at";
